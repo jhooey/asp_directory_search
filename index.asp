@@ -9,7 +9,7 @@ dim filename()
 dim creationDate()
 dim i
 
-path=server.mappath("\") &"./SSC/Archivedcharts"
+path=server.mappath("\") &"\SSC\Archivedcharts\"
 
 set fs = server.createobject("Scripting.FileSystemObject")
 set archiveFolder = fs.getfolder(path)
