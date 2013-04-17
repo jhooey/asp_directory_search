@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html>
+<head>
+</head>
 <body>
 <%
 
@@ -59,24 +61,33 @@ dim currentYear
 dim currentMonth
 currentYear = 1
 currentMonth = 20
+missingMonthCheck = 12
 
 For i=0 to max
 	'Formatting code - will group all files into a single year'
 	if currentYear <> Year(creationDate(i)) then
-		currentYear = Year(creationDate(i))
-		response.write ("<h1>" & currentYear & "</h1>")
+	
+		if i <> 0 then
+			%></div><%
+		end if
+		
+		currentYear = Year(creationDate(i))	
+		%>
+			<h1 style="margin:10px 0 10px 0;"><%=currentYear%></h1>
+			<div style="width:800px;padding:0 0 30px 0;">
+		<%
 		currentMonth = 20
 	end if
-	
-	if currentMonth <> Month(creationDate(i)) then
-	currentMonth = Month(creationDate(i))
-%>
-	<a href="<% response.write(path & filename(i)) %>"><%= MonthName(Month(creationDate(i))) %></a><br>
-<%	
-	end if
 
+	if currentMonth <> Month(creationDate(i)) then
+		currentMonth = Month(creationDate(i))
+		%>
+			<div style="float:right; margin:0 11px 0 11px"><a href="<% response.write(path & filename(i)) %>"><%= MonthName(Month(creationDate(i))) %></a></div>
+		<%	
+	end if
 next
 
+%></div><%
 %>
 </body>
 </html> 
