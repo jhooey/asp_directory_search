@@ -1,0 +1,62 @@
+﻿<!-- saved from url=(0014)about:internet -->
+<html><head><title>ssc_eng</title>
+<meta http-equiv="expires" content="0">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<SCRIPT LANGUAGE="JavaScript">
+
+function checkForIE()
+{
+    var netscape = false;
+
+    if (navigator.appName == "Netscape")
+        netscape = true;
+
+    // if Not MS Internet Explorer, change the page
+    if(netscape)
+    {
+        if (navigator.mimeTypes["application/x-orgpublisher"])
+            window.location = ("20130409_ssc_eng.ocp")
+        else
+            top.location.href = "http://www.Aquire.com/downloads/plugins/";
+    }
+}
+
+</SCRIPT>
+
+<SCRIPT LANGUAGE="JavaScript" FOR="OrgPublisherPluginX" EVENT="HotspotClick(URL)">
+  window.open(URL);
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript" FOR="OrgPublisherPluginX" EVENT="HelpClick(URL)">
+  window.open(URL);
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript" FOR="OrgPublisherPluginX" EVENT="Redirect(URL)">
+  location.reload(true);
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript" FOR="OrgPublisherPluginX" EVENT="SendToPDF(URL)">
+  window.open(URL);
+</SCRIPT>
+</head>
+<body bgcolor="#FFFFFF"  topmargin="0" leftmargin="0" scroll="no" onLoad="checkForIE()">
+<SCRIPT LANGUAGE=javascript>
+	var szSelectedBox = "";
+    var szInputStr = self.location.search;
+    var nNext = 1;
+
+    szInputStr = unescape( decodeURI(szInputStr) );
+
+    for ( i = 1; i < szInputStr.length; i++)
+    {
+        if ( szInputStr.charAt(i) == "^" )
+        {
+            szCheck = szInputStr.substring( nNext,nNext+11 );
+
+            if ( szCheck.substring(0,11) == "SelectedBox" )
+            {
+                szSelectedBox = szInputStr.substring( nNext+12,i);
+            }
+            nNext = i + 1;
+        }
+    }
+</SCRIPT>
+<SCRIPT SRC="20130409_ssc_eng.js"></SCRIPT>
+<SCRIPT>ReplaceContent();</SCRIPT></body></html>
