@@ -56,17 +56,25 @@ For i=0 to max
 next	
 	
 dim currentYear
+dim currentMonth
 currentYear = 1
+currentMonth = 20
 
 For i=0 to max
 	'Formatting code - will group all files into a single year'
 	if currentYear <> Year(creationDate(i)) then
 		currentYear = Year(creationDate(i))
 		response.write ("<h1>" & currentYear & "</h1>")
+		currentMonth = 20
 	end if
+	
+	if currentMonth <> Month(creationDate(i)) then
+	currentMonth = Month(creationDate(i))
 %>
-	<a href="<% response.write(path & filename(i)) %>"><%= MonthName(Month(creationDate(i))) %> - <%= filename(i) %></a><br>
+	<a href="<% response.write(path & filename(i)) %>"><%= MonthName(Month(creationDate(i))) %></a><br>
 <%	
+	end if
+
 next
 
 %>
