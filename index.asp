@@ -17,13 +17,17 @@ set archivedFiles = archiveFolder.files			'list of files
 
 i = 0
 for each strfile in archivedFiles
-	redim preserve filename(i + 1)
-	redim preserve creationDate(i + 1)
-	
 	If InStr(strfile.name, ".htm") Then	
+	
+		
+		redim preserve filename(i + 1)
+		redim preserve creationDate(i + 1)
+		
 		filename(i) = strfile.name
 		creationDate(i) = strfile.DATECREATED
+		
 		i = i +1
+		
 	End If
 next
 
@@ -36,7 +40,7 @@ set archivedFiles = nothing
 'Sort Arrays in order of Date Created
 dim max, j, TempVar1, TempVar2
 
-max = ubound(creationDate)
+max = ubound(creationDate) - 1
 
 For i=0 to max 
 	For j=i+1 to max 
@@ -51,9 +55,17 @@ For i=0 to max
 	next 
 next	
 	
+dim currentYear
+currentYear = 1
+
 For i=0 to max
+	'Formatting code - will group all files into a single year'
+	if currentYear <> Year(creationDate(i)) then
+		currentYear = Year(creationDate(i))
+		response.write ("<h1>" & currentYear & "</h1>")
+	end if
 %>
-	<a href="./testfiles/<%= filename(i) %>"><%= filename(i) %></a> <%= MonthName(Month(creationDate(i))) %><br>
+	<a href="<% response.write(path & filename(i)) %>"><%= MonthName(Month(creationDate(i))) %> - <%= filename(i) %></a><br>
 <%	
 next
 
