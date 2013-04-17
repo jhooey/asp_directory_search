@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 <%
@@ -73,8 +74,8 @@ For i=0 to max
 		
 		currentYear = Year(creationDate(i))	
 		%>
-			<h1 style="margin:10px 0 10px 0;"><%=currentYear%></h1>
-			<div style="width:800px;padding:0 0 30px 0;">
+			<h1><%=currentYear%></h1>
+			<div class="calendarYear">
 		<%
 		currentMonth = 20
 	end if
@@ -82,7 +83,7 @@ For i=0 to max
 	if currentMonth <> Month(creationDate(i)) then
 		currentMonth = Month(creationDate(i))
 		%>
-			<div style="float:right; margin:0 11px 0 11px"><a href="<% response.write(path & filename(i)) %>"><%= MonthName(Month(creationDate(i))) %></a></div>
+			<div class="calendarMonth"><a href="<% response.write(path & filename(i)) %>"><%= MonthName(Month(creationDate(i))) %></a></div>
 		<%	
 	end if
 next
