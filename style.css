@@ -7,7 +7,7 @@
 
 .archives a {
 	color: #333;
-	text-decoration: none;
+	text-decoration: none!important;
 }
 .archives a:hover {
 	color: #61CDF5;
@@ -22,20 +22,16 @@
 .archives li {
 	padding-bottom: 0.25em;
 	font-size: 16px;
-	list-style: url(images/marker.gif) inside;
+	list-style: url(images/marker.png) inside;
 	padding: 0;
 	margin: 0;
-}
-.archives li a {
-	text-decoration: none!important;
-	line-height: 13px;
 }
 .archives h3{
 	font-family: sans-serif;
 	border: none;
 	color: #61CDF5;
 	font-size: 20px;
-	line-height: 28px;
+	line-height: 28px; 
 	margin-bottom: 10px;
 	font-weight: normal;
 }
