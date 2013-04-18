@@ -18,6 +18,10 @@ Function fillGaps ( missingMonthCheck, monthCreationDate )
 	fillGaps = missingMonthCheck
 end function
 
+
+
+
+
 'List files in an array'
 dim path, strfile
 dim filename() 
@@ -88,13 +92,11 @@ For i=0 to max
 		duplicateMonth = true
 	end if
 	
-	if currentYear <> Year(creationDate(i)) and missingMonthCheck > 0 and i <> 0 then
-		
+	if currentYear <> Year(creationDate(i)) and missingMonthCheck > 0 and i <> 0 then	
 		missingMonthCheck = fillGaps ( missingMonthCheck, Month(creationDate(i)) )
-		
-	'Formatting code - will group all files into a single year'
 	end if 
 	
+	'Formatting code - will group all files into a single year'
 	if currentYear <> Year(creationDate(i)) then
 	
 		if i <> 0 then
