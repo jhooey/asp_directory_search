@@ -9,12 +9,12 @@
 </head>
 <body>
 <%
-dim path, files
+dim files
 
-path=server.mappath("\") & "\SSC\Archivedcharts\"
+'Create a list of all the files with the filetype extension in the path (defined in config.asp)
+files = grabFiles ( path, filetype)
 
-files = grabHTMFiles ( path )
-
+'Sort the files in descending order by date created
 files = sortFilesDesc (files)
 
 
@@ -29,54 +29,56 @@ columnWidth = 100 / numColumns
 for i=0 to ubound(files, 2) - 1
 
 	if i = 0 then
+	
 		%> 
-	<div class="archives">
-	<div class="archive_year" style="width: <%=columnWidth%>%">
-	<h3><%=Year(files( 1, i))%></h3> 
-	<ul>
+		<div class="archives">
+			<div class="archive_year" style="width: <%=columnWidth%>%">
+				<h3><%=Year(files( 1, i))%></h3> 
+				<ul>
 		<%
-		previousYear = Year(files( 1, i))
 		
+		previousYear = Year(files( 1, i))
+	
 	elseif previousYear <> Year(files( 1, i)) then
-		%>
-	</ul>
-		<%
+		%></ul><%
 	
 		while previousYear > Year(files( 1, i)) 
 			previousYear = previousYear - 1
+			%></div><%
+			divCount = divCount + 1
+			
+			if divCount >= numColumns then 
+				divCount = 0
+				%>
+					</div>
+					<div class="archives">
+				<%
+			end if
+			
 			%>
-	</div>
-	<%
-	divCount = divCount + 1
-	
-	if divCount >= numColumns then 
-		divCount = 0
-		%> </div><div class="archives"> <%
-	end if
-	
-	
-	%>
-	<div class="archive_year" style="width: <%=columnWidth%>%"><h3><%=previousYear%></h3>
+			<div class="archive_year" style="width: <%=columnWidth%>%">
+				<h3><%=previousYear%></h3>
 			<%
 			
 		wend
 
-  %><ul>
-  
-		<%
+		%><ul><%
+		
 		previousFileDate = 0
 		
 	end if
 	
 	if ( previousFileDate <> 0 and previousYear = Year(files( 1, i))) then
-		
 		datesDiff = ( DatePart( "y", previousFileDate) - DatePart( "y", files( 1, i)) ) * distanceModifier
 	else 
 		datesDiff = 0
 	end if
-	%>  <li style="margin-top: <%=datesDiff%>px">
-				<a href="<% response.write(path & files( 0, i)) %>"><%=MonthName(Month(files( 1, i)))%>&nbsp;&nbsp;<%=Day(files( 1, i))%></a>
-		</li><%
+	
+	
+	%><li style="margin-top: <%=datesDiff%>px">
+		<a href="<% response.write(path & files( 0, i)) %>"><%=MonthName(Month(files( 1, i)))%>&nbsp;&nbsp;<%=Day(files( 1, i))%></a>
+	</li>
+	<%
 	
 	previousYear = Year(files( 1, i))
 	previousFileDate = files( 1, i)

@@ -1,6 +1,6 @@
 <%
 
-Function grabHTMFiles( path )
+Function grabFiles( path, filetype )
 	dim strfile, i, files()
 	set fs = server.createobject("Scripting.FileSystemObject")
 	set archiveFolder = fs.getfolder(path)
@@ -8,7 +8,7 @@ Function grabHTMFiles( path )
 
 	i = 0
 	for each strfile in archivedFiles
-		If InStr(strfile.name, ".htm") Then	
+		If InStr(strfile.name, filetype) Then	
 		
 			redim preserve files( 2, i + 1)
 					
@@ -23,7 +23,7 @@ Function grabHTMFiles( path )
 	set archiveFolder = nothing
 	set archivedFiles = nothing
 	
-	grabHTMFiles = files
+	grabFiles = files
 	
 end function
 'List files in an array'
