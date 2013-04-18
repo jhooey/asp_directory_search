@@ -57,10 +57,11 @@ For i=0 to max
 	next 
 next	
 
-dim previousYear, datesDiff
+dim previousYear, datesDiff, previousFileDate, distanceModifier
 
+previousFileDate = 0
 previousYear = 1
-
+distanceModifier = 1
 
 for i=0 to max 
 
@@ -70,6 +71,7 @@ for i=0 to max
 	<ol class="archives_list">
 		<%
 		previousYear = Year(creationDate(i))
+		
 	elseif previousYear <> Year(creationDate(i)) then
 		%>
 	</ol>
@@ -85,11 +87,28 @@ for i=0 to max
 		%>
 	<ol class="archives_list">
 		<%
-
-
+		previousFileDate = 0
+		
 	end if
 	
+	if ( previousFileDate <> 0 and previousYear = Year(creationDate(i))) then
+		
+		datesDiff = ( DatePart( "y", previousFileDate) - DatePart( "y", creationDate(i)) ) * distanceModifier
+		response.write(datesDiff)
+	else 
+		datesDiff = 0
+	end if
+	
+	previousYear = Year(creationDate(i))
+	previousFileDate = creationDate(i)
+	
 next
+
+if ( previousFileDate <> 0 ) then
+	%>
+	</ol>
+	<%
+end if
 
 %>
 </body>
