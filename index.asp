@@ -100,7 +100,7 @@ for i=0 to max
 	%>
 		<li style="margin-top: <%=datesDiff%>px">
 			<span class="date">
-				<a href="<% response.write(path & filename(i)) %>"><%=FormatDateTime(creationDate(i),vbLongDate)%></a>
+				<a href="<% response.write(path & filename(i)) %>"><%=MonthName(Month(creationDate(i)))%>&nbsp;&nbsp;<%=Day(creationDate(i))%></a>
 			</span>
 		</li>
 	<%
