@@ -5,14 +5,10 @@
 </head>
 <body>
 <%
+
+
 'List files in an array'
-dim path, strfile
-dim filename() 
-dim creationDate()
-dim i
-
-
-path=server.mappath("\") & "\SSC\Archivedcharts\"
+dim strfile, filename(), creationDate(), i
 
 set fs = server.createobject("Scripting.FileSystemObject")
 set archiveFolder = fs.getfolder(path)
@@ -55,16 +51,11 @@ For i=0 to max
 	next 
 next	
 
-dim previousYear, datesDiff, previousFileDate, distanceModifier, divCount, numColumns
+dim previousYear, datesDiff, previousFileDate, divCount
 
 previousFileDate = 0
 previousYear = 1
 divCount = 0
-
-distanceModifier = 1
-numColumns = 4
-
-
 
 columnWidth = 100 / numColumns
 for i=0 to max 
