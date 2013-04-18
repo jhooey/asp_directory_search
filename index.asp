@@ -4,9 +4,9 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="archives">
+
 <%
-
-
 'List files in an array'
 dim path, strfile
 dim filename() 
@@ -61,7 +61,7 @@ dim previousYear, datesDiff, previousFileDate, distanceModifier
 
 previousFileDate = 0
 previousYear = 1
-distanceModifier = 1
+distanceModifier = 3
 
 for i=0 to max 
 
@@ -84,8 +84,8 @@ for i=0 to max
 			<%
 		wend
 
-		%>
-	<ol class="archives_list">
+  %><ol class="archives_list">
+  
 		<%
 		previousFileDate = 0
 		
@@ -97,13 +97,11 @@ for i=0 to max
 	else 
 		datesDiff = 0
 	end if
-	%>
-		<li style="margin-top: <%=datesDiff%>px">
+	%>  <li style="margin-top: <%=datesDiff%>px">
 			<span class="date">
 				<a href="<% response.write(path & filename(i)) %>"><%=MonthName(Month(creationDate(i)))%>&nbsp;&nbsp;<%=Day(creationDate(i))%></a>
 			</span>
-		</li>
-	<%
+		</li><%
 	
 	previousYear = Year(creationDate(i))
 	previousFileDate = creationDate(i)
@@ -111,11 +109,11 @@ for i=0 to max
 next
 
 if ( previousFileDate <> 0 ) then
-	%>
-	</ol>
+  %></ol>
 	<%
 end if
 
 %>
+</div>
 </body>
 </html> 
