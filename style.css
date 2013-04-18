@@ -3,6 +3,7 @@
 	display: block;
 	width: 100%;
 	float:left;
+	min-width:800px;
 }
 
 .archives a {
@@ -38,5 +39,4 @@
 
 .archive_year {
 	float:left; 
-	width:25%;
 }

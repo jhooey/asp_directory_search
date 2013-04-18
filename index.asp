@@ -55,19 +55,24 @@ For i=0 to max
 	next 
 next	
 
-dim previousYear, datesDiff, previousFileDate, distanceModifier, divCount
+dim previousYear, datesDiff, previousFileDate, distanceModifier, divCount, numColumns
 
 previousFileDate = 0
 previousYear = 1
-distanceModifier = 2
 divCount = 0
 
+distanceModifier = 1
+numColumns = 4
+
+
+
+columnWidth = 100 / numColumns
 for i=0 to max 
 
 	if i = 0 then
 		%> 
 	<div class="archives">
-	<div class="archive_year">
+	<div class="archive_year" style="width: <%=columnWidth%>%">
 	<h3><%=Year(creationDate(i))%></h3> 
 	<ul>
 		<%
@@ -85,14 +90,14 @@ for i=0 to max
 	<%
 	divCount = divCount + 1
 	
-	if divCount >= 4 then 
+	if divCount >= numColumns then 
 		divCount = 0
 		%> </div><div class="archives"> <%
 	end if
 	
 	
 	%>
-	<div class="archive_year"><h3><%=previousYear%></h3>
+	<div class="archive_year" style="width: <%=columnWidth%>%"><h3><%=previousYear%></h3>
 			<%
 			
 		wend
