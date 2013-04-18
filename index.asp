@@ -57,19 +57,41 @@ For i=0 to max
 	next 
 next	
 
+dim previousYear, workingYear, datesDiff
+
+previousYear = 1
+
+
 for i=0 to max 
 
-if i = 0 then
-	%> <h3 class="archive_year"><% 
+	if i = 0 then
+		%> 
+	<h3 class="archive_year"><%=Year(creationDate(i))%></h3> 
+	<ol class="archives_list">
+		<%
+		previousYear = Year(creationDate(i))
+	elseif previousYear <> Year(creationDate(i)) then
+		%>
+	</ol>
+		<%
+		
+		workingYear = previousYear
+		
+		while workingYear > Year(creationDate(i)) 
+			workingYear = workingYear - 1
+			%>
+	<h3 class="archive_year"><%=workingYear%></h3>
+			<%
+		wend
 
-
-
+		%>
+	<ol class="archives_list">
+		<%
+		previousYear = workingYear
+	end if
+	
 next
 
-
-
-
-
-
+%>
 </body>
 </html> 
