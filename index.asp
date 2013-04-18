@@ -57,5 +57,19 @@ For i=0 to max
 	next 
 next	
 
-' </body>
-' </html> 
+for i=0 to max 
+
+if i = 0 then
+	%> <h3 class="archive_year"><% 
+
+
+
+next
+
+
+
+
+
+
+</body>
+</html> 
