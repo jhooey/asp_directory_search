@@ -4,8 +4,6 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="archives">
-
 <%
 'List files in an array'
 dim path, strfile
@@ -57,17 +55,20 @@ For i=0 to max
 	next 
 next	
 
-dim previousYear, datesDiff, previousFileDate, distanceModifier
+dim previousYear, datesDiff, previousFileDate, distanceModifier, divCount
 
 previousFileDate = 0
 previousYear = 1
-distanceModifier =2
+distanceModifier = 2
+divCount = 0
 
 for i=0 to max 
 
 	if i = 0 then
 		%> 
-	<h3 class="archive_year"><%=Year(creationDate(i))%></h3> 
+	<div class="archives">
+	<div class="archive_year">
+	<h3><%=Year(creationDate(i))%></h3> 
 	<ol class="archives_list">
 		<%
 		previousYear = Year(creationDate(i))
@@ -80,8 +81,20 @@ for i=0 to max
 		while previousYear > Year(creationDate(i)) 
 			previousYear = previousYear - 1
 			%>
-	<h3 class="archive_year"><%=previousYear%></h3>
+	</div>
+	<%
+	divCount = divCount + 1
+	
+	if divCount >= 4 then 
+		divCount = 0
+		%> </div><div class="archives"> <%
+	end if
+	
+	
+	%>
+	<div class="archive_year"><h3><%=previousYear%></h3>
 			<%
+			
 		wend
 
   %><ol class="archives_list">
@@ -110,6 +123,7 @@ next
 
 if ( previousFileDate <> 0 ) then
   %></ol>
+	</div>
 	<%
 end if
 
