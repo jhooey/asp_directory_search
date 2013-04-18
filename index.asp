@@ -4,13 +4,19 @@
 <link rel="stylesheet" href="style.css">
 
 <!--#include file="functions.asp"-->
+<!--#include file="config.asp"-->
 
 </head>
 <body>
-
-
-
 <%
+dim previousYear, datesDiff, previousFileDate, divCount
+
+previousFileDate = 0
+previousYear = 1
+divCount = 0
+
+columnWidth = 100 / numColumns
+
 for i=0 to max 
 
 	if i = 0 then
