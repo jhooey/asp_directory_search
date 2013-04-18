@@ -94,10 +94,16 @@ for i=0 to max
 	if ( previousFileDate <> 0 and previousYear = Year(creationDate(i))) then
 		
 		datesDiff = ( DatePart( "y", previousFileDate) - DatePart( "y", creationDate(i)) ) * distanceModifier
-		response.write(datesDiff)
 	else 
 		datesDiff = 0
 	end if
+	%>
+		<li style="margin-top: <%=datesDiff%>px">
+			<span class="date">
+				<a href="<% response.write(path & filename(i)) %>"><%=FormatDateTime(creationDate(i),vbLongDate)%></a>
+			</span>
+		</li>
+	<%
 	
 	previousYear = Year(creationDate(i))
 	previousFileDate = creationDate(i)
