@@ -61,7 +61,7 @@ dim previousYear, datesDiff, previousFileDate, distanceModifier
 
 previousFileDate = 0
 previousYear = 1
-distanceModifier = 3
+distanceModifier =2
 
 for i=0 to max 
 
