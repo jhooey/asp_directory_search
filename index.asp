@@ -57,7 +57,7 @@ For i=0 to max
 	next 
 next	
 
-dim previousYear, workingYear, datesDiff
+dim previousYear, datesDiff
 
 previousYear = 1
 
@@ -74,20 +74,19 @@ for i=0 to max
 		%>
 	</ol>
 		<%
-		
-		workingYear = previousYear
-		
-		while workingYear > Year(creationDate(i)) 
-			workingYear = workingYear - 1
+	
+		while previousYear > Year(creationDate(i)) 
+			previousYear = previousYear - 1
 			%>
-	<h3 class="archive_year"><%=workingYear%></h3>
+	<h3 class="archive_year"><%=previousYear%></h3>
 			<%
 		wend
 
 		%>
 	<ol class="archives_list">
 		<%
-		previousYear = workingYear
+
+
 	end if
 	
 next
