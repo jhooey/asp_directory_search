@@ -4,8 +4,13 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<%
 
+<%
+dim path, numColumns, distanceModifier
+
+path=server.mappath("\") & "\SSC\Archivedcharts\"
+distanceModifier = 1
+numColumns = 5
 
 'List files in an array'
 dim strfile, filename(), creationDate(), i
