@@ -111,12 +111,7 @@ For i=0 to max
 	end if
 	
 	
-	While (missingMonthCheck <> Month(creationDate(i)) And  missingMonthCheck > 0)
-		%>
-			<div class="calendarMonth"><%= MonthName(missingMonthCheck) %></div>
-		<%
-		missingMonthCheck = missingMonthCheck - 1
-	wEnd
+	missingMonthCheck = fillGaps ( missingMonthCheck, Month(creationDate(i)) )
 
 	
 	
