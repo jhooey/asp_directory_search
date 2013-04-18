@@ -27,32 +27,27 @@ Function grabHTMFiles( path )
 	
 end function
 'List files in an array'
-dim path, files
-
-path=server.mappath("\") & "\SSC\Archivedcharts\"
-
-files = grabHTMFiles ( path )
-
-'Sort Arrays in order of Date Created
 
 
-dim max, j, TempVar1, TempVar2
-max = ubound(files, 2) - 1
+'Sort Arrays in order of Date Created (Descending)
+function sortFilesDesc (files())
+	dim max, j, TempVar1, TempVar2
+	max = ubound(files, 2) - 1
 
-For i=0 to max 
-	For j=i+1 to max 
-		If files( 1, i) < files( 1, j) then
-			TempVar1=files( 1, i)
-			TempVar2=files( 0, i)
-			files( 1, i)=files( 1, j)
-			files( 1, j)=TempVar1
-			files( 0, i)=files( 0, j)
-			files( 0, j)=TempVar2
-		end if
-	next 
-next	
+	For i=0 to max 
+		For j=i+1 to max 
+			If files( 1, i) < files( 1, j) then
+				TempVar1=files( 1, i)
+				TempVar2=files( 0, i)
+				files( 1, i)=files( 1, j)
+				files( 1, j)=TempVar1
+				files( 0, i)=files( 0, j)
+				files( 0, j)=TempVar2
+			end if
+		next 
+	next	
 
-
-
+	sortFilesDesc = files 
+end function
 
 %>

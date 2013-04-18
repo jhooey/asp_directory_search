@@ -9,6 +9,15 @@
 </head>
 <body>
 <%
+dim path, files
+
+path=server.mappath("\") & "\SSC\Archivedcharts\"
+
+files = grabHTMFiles ( path )
+
+files = sortFilesDesc (files)
+
+
 dim previousYear, datesDiff, previousFileDate, divCount
 
 previousFileDate = 0
@@ -17,7 +26,7 @@ divCount = 0
 
 columnWidth = 100 / numColumns
 
-for i=0 to max 
+for i=0 to ubound(files, 2) - 1
 
 	if i = 0 then
 		%> 
