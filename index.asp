@@ -69,13 +69,13 @@ for i=0 to max
 	<div class="archives">
 	<div class="archive_year">
 	<h3><%=Year(creationDate(i))%></h3> 
-	<ol class="archives_list">
+	<ul>
 		<%
 		previousYear = Year(creationDate(i))
 		
 	elseif previousYear <> Year(creationDate(i)) then
 		%>
-	</ol>
+	</ul>
 		<%
 	
 		while previousYear > Year(creationDate(i)) 
@@ -97,7 +97,7 @@ for i=0 to max
 			
 		wend
 
-  %><ol class="archives_list">
+  %><ul>
   
 		<%
 		previousFileDate = 0
@@ -111,9 +111,7 @@ for i=0 to max
 		datesDiff = 0
 	end if
 	%>  <li style="margin-top: <%=datesDiff%>px">
-			<span class="date">
 				<a href="<% response.write(path & filename(i)) %>"><%=MonthName(Month(creationDate(i)))%>&nbsp;&nbsp;<%=Day(creationDate(i))%></a>
-			</span>
 		</li><%
 	
 	previousYear = Year(creationDate(i))
@@ -122,7 +120,7 @@ for i=0 to max
 next
 
 if ( previousFileDate <> 0 ) then
-  %></ol>
+  %></ul>
 	</div>
 	<%
 end if
