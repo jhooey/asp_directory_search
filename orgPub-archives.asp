@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="/css/orgPub-archives.css">
 
-<!--#include file="functions.asp"-->
-<!--#include file="config.asp"-->
+<!--#include file="scripts/functions-orgPub-archives.asp"-->
+<!--#include file="config-orgPub-archives.asp"-->
 
 </head>
 <body>

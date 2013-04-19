@@ -23,7 +23,7 @@
 .orgPub-archives li {
 	padding-bottom: 0.25em;
 	font-size: 16px;
-	list-style: url(images/marker.png) inside;
+	list-style: url(../images/marker.png) inside;
 	padding: 0;
 	margin: 0;
 }
