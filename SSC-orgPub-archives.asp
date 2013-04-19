@@ -3,8 +3,11 @@
 <%
 dim numColumns, distanceModifier, path, filetype, department
 
-filetype = ".htm"
-department = "SSC"
+department = "SSC"		'name of the folder in archivedcharts
+
+filetype = ".htm"		'for all files set to ".*"
+
+
 path=server.mappath("\") & "\Archivedcharts\" & department & "\" 
 
 distanceModifier = 1 	'Controls the distance between listed files - margin: (# of days between files)* modifier
