@@ -18,7 +18,7 @@ files = grabFiles ( path, filetype)
 files = sortFilesDesc (files)
 
 
-dim previousYear, datesDiff, previousFileDate, divCount
+dim previousYear, datesDiff, previousFileDate, divCount, filename
 
 previousFileDate = 0  	'0 means its the first file in the year
 previousYear = 1		'Used to group files by year
@@ -84,11 +84,11 @@ for i=0 to ubound(files, 2) - 1
 	else 
 		datesDiff = 0
 	end if
-	
+
 	'Creates the links to the files
 	'Display text is the month and day the file was created
 	%><li style="margin-top: <%=datesDiff%>px">
-		<a href="<% response.write(path & files( 0, i)) %>"><%=MonthName(Month(files( 1, i)))%>&nbsp;&nbsp;<%=Day(files( 1, i))%></a>
+		<a href="<% response.write(path & filename) %>"><%=MonthName(Month(files( 1, i)))%>&nbsp;&nbsp;<%=Day(files( 1, i))%></a>
 	</li>
 	<%
 	
