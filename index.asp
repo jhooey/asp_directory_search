@@ -31,8 +31,8 @@ for i=0 to ubound(files, 2) - 1
 	if i = 0 then
 	
 		%> 
-		<div class="archives">
-			<div class="archive_year" style="width: <%=columnWidth%>%">
+		<div class="orgPub-archives">
+			<div class="orgPub-archive-year" style="width: <%=columnWidth%>%">
 				<h3><%=Year(files( 1, i))%></h3> 
 				<ul>
 		<%
@@ -51,12 +51,12 @@ for i=0 to ubound(files, 2) - 1
 				divCount = 0
 				%>
 					</div>
-					<div class="archives">
+					<div class="orgPub-archives">
 				<%
 			end if
 			
 			%>
-			<div class="archive_year" style="width: <%=columnWidth%>%">
+			<div class="orgPub-archive-year" style="width: <%=columnWidth%>%">
 				<h3><%=previousYear%></h3>
 			<%
 			

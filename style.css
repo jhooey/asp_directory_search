@@ -1,4 +1,4 @@
-.archives {
+.orgPub-archives {
 	color: #61CDF5;
 	display: block;
 	width: 100%;
@@ -6,28 +6,28 @@
 	min-width:800px;
 }
 
-.archives a {
+.orgPub-archives a {
 	color: #333;
 	text-decoration: none!important;
 }
-.archives a:hover {
+.orgPub-archives a:hover {
 	color: #61CDF5;
 }
-.archives ul {
+.orgPub-archives ul {
 	margin:0;
 	padding: 0;
 	border-left: 4px solid #cacaca;
 	padding-bottom: 10px;
 }
 
-.archives li {
+.orgPub-archives li {
 	padding-bottom: 0.25em;
 	font-size: 16px;
 	list-style: url(images/marker.png) inside;
 	padding: 0;
 	margin: 0;
 }
-.archives h3{
+.orgPub-archives h3{
 	font-family: sans-serif;
 	border: none;
 	color: #61CDF5;
@@ -37,6 +37,6 @@
 	font-weight: normal;
 }
 
-.archive_year {
+.orgPub-archive-year {
 	float:left; 
 }
