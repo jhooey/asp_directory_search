@@ -1,6 +1,10 @@
 <%
 
+'Scans a folder specified by path
+'returns a list of filenames and dates Created in an array for a specified filetype
+'to return all files in a folder, filetype must = ".*"
 Function grabFiles( path, filetype )
+
 	dim strfile, i, files()
 	set fs = server.createobject("Scripting.FileSystemObject")
 	set archiveFolder = fs.getfolder(path)
@@ -8,7 +12,7 @@ Function grabFiles( path, filetype )
 
 	i = 0
 	for each strfile in archivedFiles
-		If InStr(strfile.name, filetype) Then	
+		If InStr(strfile.name, filetype) or filetype = ".*" Then	
 		
 			redim preserve files( 2, i + 1)
 					
@@ -29,7 +33,8 @@ end function
 'List files in an array'
 
 
-'Sort Arrays in order of Date Created (Descending)
+'Sort Array in order of Date Created (Descending)
+'files is sorted on files ( 1, x ), in this case "Date Created"
 function sortFilesDesc (files())
 	dim max, j, TempVar1, TempVar2
 	max = ubound(files, 2) - 1
