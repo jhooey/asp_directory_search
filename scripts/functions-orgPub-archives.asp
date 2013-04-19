@@ -55,7 +55,4 @@ function sortFilesDesc (files())
 	sortFilesDesc = files 
 end function
 
-function convertToHyperlink ( filename ) 
-	convertToHyperlink = Replace(filename, " ", " ")
-end function
 %>

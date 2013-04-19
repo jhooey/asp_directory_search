@@ -1,13 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-<link rel="stylesheet" href="/css/orgPub-archives.css">
-
-<!--#include file="scripts/functions-orgPub-archives.asp"-->
-<!--#include file="config-orgPub-archives.asp"-->
-
-</head>
-<body>
 <%
 dim files
 
@@ -101,10 +91,8 @@ next
 if ( previousFileDate <> 0 ) then
   %></ul>
 	</div>
+	</div>
 	<%
 end if
 
 %>
-</div>
-</body>
-</html> 
