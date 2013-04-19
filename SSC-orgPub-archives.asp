@@ -14,5 +14,5 @@ distanceModifier = 1 	'Controls the distance between listed files - margin: (# o
 numColumns = 5  		'MAX columns is 7. for best results use 5
 %>
 
-<!--#include file="templates/content-orgPub-Archives.asp"-->
-<!--#include file="templates/footer-orgPub-Archives.asp"-->
+<!--#include virtual="./templates/content-orgPub-Archives.asp"-->
+<!--#include virtual="./templates/footer-orgPub-Archives.asp"-->
