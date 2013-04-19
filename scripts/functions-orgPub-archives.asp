@@ -55,4 +55,7 @@ function sortFilesDesc (files())
 	sortFilesDesc = files 
 end function
 
+function convertToHyperlink ( filename ) 
+	convertToHyperlink = Replace(filename, " ", "%20")
+end function
 %>
